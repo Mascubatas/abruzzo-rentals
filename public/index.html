@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abruzzo Rentals - Parco Nazionale d'Abruzzo</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Abruzzo Rentals</h1>
+    <p>Short-term stays inside Parco Nazionale d'Abruzzo, Lazio e Molise</p>
+  </header>
+
+  <main>
+    <section id="listings" class="grid"></section>
+  </main>
+
+  <dialog id="bookingDialog">
+    <h2 id="dialogTitle"></h2>
+    <label>
+      Nights
+      <input type="number" id="nightsInput" min="1" value="2" />
+    </label>
+    <p id="totalPrice"></p>
+    <div class="dialog-actions">
+      <button id="payBtn">Pay with card</button>
+      <button id="closeDialogBtn" class="secondary">Cancel</button>
+    </div>
+    <p id="errorMsg" class="error"></p>
+  </dialog>
+
+  <footer>
+    <p>&copy; 2026 Abruzzo Rentals. Payments securely processed by Stripe.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

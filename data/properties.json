@@ -1,0 +1,38 @@
+[
+  {
+    "id": "casa-orso",
+    "name": "Casa dell'Orso",
+    "village": "Pescasseroli",
+    "description": "Cozy stone cottage near the forest, perfect base for wildlife watching in the park.",
+    "guests": 4,
+    "pricePerNight": 85,
+    "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600"
+  },
+  {
+    "id": "rifugio-lupo",
+    "name": "Rifugio del Lupo",
+    "village": "Civitella Alfedena",
+    "description": "Mountain chalet with lake views, close to the Wolf Apennine Museum.",
+    "guests": 6,
+    "pricePerNight": 110,
+    "image": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600"
+  },
+  {
+    "id": "borgo-camoscio",
+    "name": "Borgo del Camoscio",
+    "village": "Villetta Barrea",
+    "description": "Charming apartment in the historic center, steps from Lago di Barrea.",
+    "guests": 2,
+    "pricePerNight": 65,
+    "image": "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=600"
+  },
+  {
+    "id": "casale-aquila",
+    "name": "Casale dell'Aquila",
+    "village": "Opi",
+    "description": "Panoramic farmhouse overlooking the Sangro valley, ideal for hikers.",
+    "guests": 8,
+    "pricePerNight": 150,
+    "image": "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600"
+  }
+]

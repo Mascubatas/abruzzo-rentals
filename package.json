@@ -1,0 +1,16 @@
+{
+  "name": "abruzzo-rentals",
+  "version": "1.0.0",
+  "description": "Lightweight short-term rental site for Parco Nazionale d'Abruzzo",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "stripe": "^16.2.0"
+  }
+}
