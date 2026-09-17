@@ -9,9 +9,28 @@ const totalPriceEl = document.getElementById('totalPrice');
 const errorMsg = document.getElementById('errorMsg');
 
 async function loadProperties() {
-  const res = await fetch('/api/properties');
-  properties = await res.json();
-  renderListings();
+  listingsEl.innerHTML = '<p role="status">Loading properties...</p>';
+
+  try {
+    const res = await fetch('/api/properties');
+    if (!res.ok) {
+      throw new Error('Could not load properties');
+    }
+
+    const data = await res.json();
+    if (!Array.isArray(data)) {
+      throw new Error('Invalid properties response');
+    }
+
+    properties = data;
+    renderListings();
+  } catch (err) {
+    listingsEl.innerHTML = `
+      <p role="alert">Properties are temporarily unavailable.</p>
+      <button type="button" id="retryBtn">Try again</button>
+    `;
+    document.getElementById('retryBtn').addEventListener('click', loadProperties);
+  }
 }
 
 function renderListings() {

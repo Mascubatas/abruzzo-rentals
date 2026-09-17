@@ -8,10 +8,12 @@ A lightweight short-term rental site for properties in Parco Nazionale d'Abruzzo
    ```
    npm install
    ```
-2. Add your Stripe keys to `.env` (see `.env.example` for the format):
+2. Add your Stripe and Supabase keys to `.env` (see `.env.example` for the format):
    - `STRIPE_SECRET_KEY`
    - `STRIPE_PUBLISHABLE_KEY`
-   - `STRIPE_WEBHOOK_SECRET` (optional, only needed if you add webhook handling)
+   - `STRIPE_WEBHOOK_SECRET`
+   - `SUPABASE_URL`
+   - `SUPABASE_SERVICE_ROLE_KEY`
 3. Start the server:
    ```
    npm start
@@ -20,6 +22,7 @@ A lightweight short-term rental site for properties in Parco Nazionale d'Abruzzo
 
 ## Notes
 
-- Properties are stored in [data/properties.json](data/properties.json). Edit that file to add/remove listings.
+- Properties and bookings are stored in Supabase tables named `properties` and `bookings`.
 - Booking "Pay with card" creates a Stripe Checkout Session and redirects to Stripe's hosted payment page — no card data ever touches this server.
+- Configure a Stripe webhook for `/api/stripe-webhook` and set `STRIPE_WEBHOOK_SECRET` so completed test payments update bookings to `paid`.
 - `.env` is gitignored; never commit real API keys.
