@@ -8,22 +8,23 @@
 
 body {
   margin: 0;
-  font-family: system-ui, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
   color: #222;
+  min-width: 320px;
 }
 
 .hero {
   background: var(--green);
   color: white;
   text-align: center;
-  padding: 2.5rem 1rem;
+  padding: clamp(2rem, 7vw, 2.5rem) 1rem;
 }
 
-.hero h1 { margin: 0 0 0.5rem; }
-.hero p { margin: 0; opacity: 0.9; }
+.hero h1 { margin: 0 0 0.5rem; font-size: clamp(1.75rem, 7vw, 2.25rem); }
+.hero p { margin: 0 auto; max-width: 38rem; opacity: 0.9; }
 
-main { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
+main { max-width: 1000px; margin: 0 auto; padding: clamp(1rem, 4vw, 1.5rem); }
 
 .grid {
   display: grid;
@@ -44,7 +45,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
 .card-body { padding: 0.9rem; flex: 1; display: flex; flex-direction: column; }
 .card-body h3 { margin: 0 0 0.25rem; }
 .village { color: var(--gold); font-weight: 600; font-size: 0.85rem; margin: 0 0 0.5rem; }
-.desc { font-size: 0.9rem; flex: 1; }
+.desc { font-size: 0.9rem; line-height: 1.45; flex: 1; }
 .price { font-weight: bold; margin: 0.5rem 0; }
 
 button {
@@ -55,20 +56,27 @@ button {
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.95rem;
+  min-height: 2.75rem;
 }
 button:hover { opacity: 0.9; }
 button.secondary { background: #999; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 
 dialog {
   border: none;
   border-radius: 10px;
   padding: 1.5rem;
   max-width: 320px;
-  width: 90%;
+  width: min(90%, 320px);
 }
 dialog::backdrop { background: rgba(0,0,0,0.4); }
 
+dialog h2 { margin-top: 0; }
+dialog label { display: block; font-weight: 600; }
+dialog input { display: block; width: 100%; margin-top: 0.4rem; padding: 0.65rem; font: inherit; }
+
 .dialog-actions { display: flex; gap: 0.5rem; margin-top: 1rem; }
+.dialog-actions button { flex: 1; }
 .error { color: #b00020; font-size: 0.85rem; }
 
 footer {
@@ -76,4 +84,24 @@ footer {
   padding: 1.5rem;
   font-size: 0.8rem;
   color: #666;
+}
+
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; gap: 1rem; }
+  .card img { height: min(52vw, 220px); }
+  .card-body { padding: 1rem; }
+  .card-body h3 { font-size: 1.2rem; }
+  .card .book-btn { width: 100%; }
+
+  dialog {
+    align-self: end;
+    margin: 0;
+    border-radius: 14px 14px 0 0;
+    max-width: none;
+    width: 100%;
+    padding: 1.25rem 1rem calc(1.25rem + env(safe-area-inset-bottom));
+  }
+
+  .dialog-actions { flex-direction: column; }
+  .dialog-actions button { width: 100%; }
 }
